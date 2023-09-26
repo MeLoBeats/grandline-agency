@@ -1,0 +1,19 @@
+{
+  "name": "grandline-agency.fr",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.0.0",
+    "astro": "^3.1.4"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.0.24"
+  }
+}
