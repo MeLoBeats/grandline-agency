@@ -1,4 +1,9 @@
-const menuLinks = [
+type MenuLinksType = {
+    name: string
+    link: string
+}
+
+const menuLinks: MenuLinksType[] = [
     {
         name: 'Accueil',
         link: '/'
