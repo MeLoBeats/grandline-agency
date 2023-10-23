@@ -1,5 +1,5 @@
 ---
-
+import Header from "../components/Header.astro"
 ---
 
 <html lang="fr">
@@ -10,7 +10,10 @@
     <title>GrandLine Agency</title>
   </head>
   <body>
-    <h1 class="text-3xl text-blue-500">GrandLine Agency</h1>
-    <h2>test</h2>
+    <Header />
   </body>
 </html>
+
+<style is:global>
+  @import url(https://fonts.bunny.net/css?family=almendra-sc:400|urbanist:400,500,600,700,800,900);
+</style>

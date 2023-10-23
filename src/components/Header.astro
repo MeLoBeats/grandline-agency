@@ -1,0 +1,85 @@
+---
+import { Image } from "astro:assets"
+import menuLinks from "../utils/menuLinks"
+import wallpaper from "../assets/wallpaper.png"
+---
+
+<header class="w-full h-full px-10 py-3">
+  <Image
+    src={wallpaper}
+    alt={"Fond d'écran bateau"}
+    class="absolute top-0 left-0 -z-10 w-full h-full object-cover"
+  />
+  <nav class="flex justify-between">
+    <!-- Icone -->
+    <div class="">
+      <h1 class="font-AlmendraSC text-white text-4xl">GrandLine Agency</h1>
+    </div>
+    <!-- Menu -->
+    <ul
+      class="flex space-x-8 text-slate-100 font-semibold items-center justify-center"
+    >
+      {
+        menuLinks.map(({ link, name }) => (
+          <li class="link relative">
+            <a href={link}>{name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+  <div class="fade -z-10"></div>
+</header>
+
+<style>
+  .fade {
+    height: 200px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: -moz-linear-gradient(
+      top,
+      rgb(19, 59, 112) 0%,
+      rgba(110, 146, 152, 0) 100%
+    );
+    background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      color-stop(0%, rgba(19, 59, 112, 1)),
+      color-stop(100%, rgba(110, 146, 152, 0))
+    );
+    background: -webkit-linear-gradient(
+      top,
+      rgba(19, 59, 112, 1) 0%,
+      rgba(110, 146, 152, 0) 100%
+    );
+    background: -ms-linear-gradient(
+      top,
+      rgba(19, 59, 112, 1) 0%,
+      rgba(110, 146, 152, 0) 100%
+    );
+    background: linear-gradient(
+      to bottom,
+      rgba(19, 59, 112, 1) 0%,
+      rgba(110, 146, 152, 0) 100%
+    );
+  }
+  .link::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Épaisseur de la ligne */
+    bottom: -3px;
+    background-color: white; /* Couleur du soulignement de votre choix */
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .link:hover::before {
+    visibility: visible;
+    transform: scaleX(1);
+  }
+</style>
