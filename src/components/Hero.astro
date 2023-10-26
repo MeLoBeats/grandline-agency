@@ -3,28 +3,24 @@ import { Image } from "astro:assets"
 import menuLinks from "../utils/menuLinks"
 import wallpaper from "../assets/wallpaper.png"
 import Hamburger from "./Hamburger"
+import waveSVG from "../assets/wave-effet.svg"
 ---
 
-<header class="w-full h-full px-10 py-3">
-  <Image
-    src={wallpaper}
-    alt={"Fond d'écran bateau"}
-    class="absolute top-0 left-0 -z-10 max-w-full h-full object-cover"
-  />
-  <nav class="flex items-center justify-between">
+<header class="w-full h-[750px] px-10 py-3 header-bg relative overflow-hidden">
+  <nav class="flex z-10 items-center justify-between">
     <!-- Icone -->
-    <div class="">
+    <div class="z-10">
       <h1 class="font-AlmendraSC text-white text-4xl">GrandLine Agency</h1>
     </div>
     <!-- Menu -->
 
     <!-- Si taille écran > 768px Afficher liste menu  -->
     <ul
-      class="hidden md:flex space-x-4 lg:space-x-8 text-slate-100 font-semibold items-center justify-center"
+      class="hidden z-10 md:flex space-x-4 lg:space-x-8 text-slate-100 font-semibold items-center justify-center"
     >
       {
         menuLinks.map(({ link, name }) => (
-          <li class="link relative">
+          <li class="link relative text-base lg:text-lg">
             <a href={link}>{name}</a>
           </li>
         ))
@@ -32,11 +28,16 @@ import Hamburger from "./Hamburger"
     </ul>
 
     <!-- Sinon, afficher burger menu -->
-    <div class="block md:hidden">
+    <div class="block z-10 md:hidden">
       <Hamburger client:visible />
     </div>
   </nav>
-  <div class="fade -z-10"></div>
+  <h2 class="text-5xl font-AlmendraSC text-black -translate-x-7  absolute translate-y-10 bottom-1/2">Découvrez, naviguez, explorez, <br /> affrontez la mer.</h2>
+  <div class="fade"></div>
+  
+  <!-- Wave SVG -->
+  <Image src={waveSVG} alt="Wave SVG" class="absolute bottom-0 left-0 w-screen xl:translate-y-16 2xl:translate-y-20 flex justify-self-end self-end" />
+
 </header>
 
 <style is:global>
@@ -44,6 +45,12 @@ import Hamburger from "./Hamburger"
 </style>
 
 <style>
+  .header-bg {
+    background-image: url('../assets/wallpaper.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
   .fade {
     height: 200px;
     width: 100%;
