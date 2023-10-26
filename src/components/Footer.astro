@@ -1,0 +1,24 @@
+---
+import menuLinks from "../utils/menuLinks"
+import NavLink from "./NavLink.astro";
+---
+<footer class="bg-black py-[60px] px-[45px]">
+    <nav class="flex z-10 items-center justify-between">
+        <!-- Icone -->
+        <div class="z-10">
+          <h1 class="font-AlmendraSC text-white text-4xl">GrandLine Agency</h1>
+        </div>
+        <!-- Menu -->
+    
+        <!-- Si taille écran > 768px Afficher liste menu  -->
+        <ul
+          class="hidden z-10 md:flex space-x-4 lg:space-x-8 text-slate-100 font-semibold items-center justify-center"
+        >
+          {
+            menuLinks.map(({ link, name }) => (
+              <NavLink link={link} name={name} />
+            ))
+          }
+        </ul>
+      </nav>
+</footer>

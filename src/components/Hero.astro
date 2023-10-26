@@ -4,6 +4,7 @@ import menuLinks from "../utils/menuLinks"
 import wallpaper from "../assets/wallpaper.png"
 import Hamburger from "./Hamburger"
 import waveSVG from "../assets/wave-effet.svg"
+import NavLink from "./NavLink.astro"
 ---
 
 <header class="w-full h-[750px] px-10 py-3 header-bg relative overflow-hidden">
@@ -20,9 +21,7 @@ import waveSVG from "../assets/wave-effet.svg"
     >
       {
         menuLinks.map(({ link, name }) => (
-          <li class="link relative text-base lg:text-lg">
-            <a href={link}>{name}</a>
-          </li>
+          <NavLink link={link} name={name} />
         ))
       }
     </ul>
@@ -85,20 +84,5 @@ import waveSVG from "../assets/wave-effet.svg"
       rgba(110, 146, 152, 0) 100%
     );
   }
-  .link::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px; /* Épaisseur de la ligne */
-    bottom: -3px;
-    background-color: white; /* Couleur du soulignement de votre choix */
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
-  }
-
-  .link:hover::before {
-    visibility: visible;
-    transform: scaleX(1);
-  }
+ 
 </style>
