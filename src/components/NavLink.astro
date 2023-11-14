@@ -1,16 +1,17 @@
 ---
 type Props = {
-    link: string;
-    name: string
-}
-const {link,name}: Props = Astro.props;
+  link: string;
+  name: string;
+};
+const { link, name }: Props = Astro.props;
 ---
-<li class="link relative text-base lg:text-lg">
-    <a href={link}>{name}</a>
-  </li>
 
-  <style>
-     .link::before {
+<li class="link relative text-base font-medium uppercase lg:text-lg">
+  <a href={link}>{name}</a>
+</li>
+
+<style>
+  .link::before {
     content: "";
     position: absolute;
     width: 100%;
@@ -26,4 +27,4 @@ const {link,name}: Props = Astro.props;
     visibility: visible;
     transform: scaleX(1);
   }
-  </style>
+</style>

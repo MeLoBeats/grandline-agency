@@ -1,13 +1,15 @@
 ---
-import { Image } from "astro:assets"
-import menuLinks from "../utils/menuLinks"
-import wallpaper from "../assets/wallpaper.png"
-import Hamburger from "./Hamburger"
-import waveSVG from "../assets/wave-effet.svg"
-import NavLink from "./NavLink.astro"
+import { Image } from "astro:assets";
+import menuLinks from "../utils/menuLinks";
+import wallpaper from "../assets/wallpaper.png";
+import Hamburger from "./Hamburger";
+import waveSVG from "../assets/wave-effet.svg";
+import NavLink from "./NavLink.astro";
 ---
 
-<header class="w-full h-[750px] px-10 py-3 header-bg relative overflow-hidden">
+<header
+  class="w-full h-[750px] lg:px-20 px-10 py-3 header-bg bg-auto md:bg-cover relative overflow-hidden"
+>
   <nav class="flex z-10 items-center justify-between">
     <!-- Icone -->
     <div class="z-10">
@@ -17,13 +19,9 @@ import NavLink from "./NavLink.astro"
 
     <!-- Si taille écran > 768px Afficher liste menu  -->
     <ul
-      class="hidden z-10 md:flex space-x-4 lg:space-x-8 text-slate-100 font-semibold items-center justify-center"
+      class="hidden z-10 md:flex space-x-4 lg:space-x-16 text-slate-100 font-semibold items-center justify-center"
     >
-      {
-        menuLinks.map(({ link, name }) => (
-          <NavLink link={link} name={name} />
-        ))
-      }
+      {menuLinks.map(({ link, name }) => <NavLink link={link} name={name} />)}
     </ul>
 
     <!-- Sinon, afficher burger menu -->
@@ -31,27 +29,29 @@ import NavLink from "./NavLink.astro"
       <Hamburger client:visible />
     </div>
   </nav>
-  <h2 class="text-5xl font-AlmendraSC text-black -translate-x-7  absolute translate-y-10 bottom-1/2">Découvrez, naviguez, explorez, <br /> affrontez la mer.</h2>
-  <div class="fade"></div>
-  
+  <h2
+    class="text-5xl font-AlmendraSC text-white -translate-x-7 absolute translate-y-10 bottom-1/2"
+  >
+    Découvrez, naviguez, explorez, <br /> affrontez la mer.
+  </h2>
+
   <!-- Wave SVG -->
-  <Image src={waveSVG} alt="Wave SVG" class="absolute bottom-0 left-0 w-screen xl:translate-y-16 2xl:translate-y-20 flex justify-self-end self-end" />
-
+  <Image
+    src={waveSVG}
+    alt="Wave SVG"
+    class="absolute bottom-0 w-screen scale-x-[250%] left-0 md:translate-x-[500px] translate-x-0 xl:translate-y-16 2xl:translate-y-20 flex justify-self-end self-end fill-black"
+  />
 </header>
-
-<style is:global>
-  @import url(https://fonts.bunny.net/css?family=almendra-sc:400|urbanist:400,500,600,700,800,900);
-</style>
 
 <style>
   .header-bg {
-    background-image: url('../assets/wallpaper.png');
-    background-size: cover;
+    background-image: url("../assets/wallpaper.png");
+    width: 100%;
     background-position: center;
     background-repeat: no-repeat;
   }
   .fade {
-    height: 200px;
+    height: 400px;
     width: 100%;
     position: absolute;
     left: 0;
@@ -84,5 +84,4 @@ import NavLink from "./NavLink.astro"
       rgba(110, 146, 152, 0) 100%
     );
   }
- 
 </style>

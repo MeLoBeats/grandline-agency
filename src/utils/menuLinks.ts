@@ -9,12 +9,12 @@ const menuLinks: MenuLinksType[] = [
         link: '/'
     },
     {
-        name: 'Nos projets',
-        link: '/nos-projets'
-    },
-    {
         name: 'L\'équipage',
         link: '/equipage'
+    },
+    {
+        name: 'Nos projets',
+        link: '/nos-projets'
     },
     {
         name: 'Contact',
